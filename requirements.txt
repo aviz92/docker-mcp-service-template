@@ -1,0 +1,5 @@
+custom-python-logger
+python-dotenv
+pydantic
+mcp[cli]>=1.20.0
+fastapi>=0.120.4
