@@ -1,45 +1,49 @@
-# 🧱 Python Jira Plus MCP Service
-This repository contains the Python implementation of the XXXXXXXXXXX MCP (Model Context Protocol) Service. <br>
-This service is designed to facilitate seamless integration between XXXXXXXXXXX and various MCP-compatible tools, enhancing ......
+# 🧱 Docker MCP Service Template
+
+A ready-to-use template for building and deploying MCP (Model Context Protocol) services with Docker and Claude Desktop integration.
 
 ---
 
 ## 🚀 Features
-- **F1**: ...
+
+- **Dockerized** — fully containerized, ready to build and run anywhere
+- **Claude Desktop ready** — pre-configured JSON integration out of the box
+- **MCP-compatible** — structured for seamless integration with MCP-compatible tools
+- **Extensible** — add your own tools, resources, and prompts with minimal boilerplate
+
+---
 
 ## Connecting to Claude Desktop
-1. clone this repository and build the Docker image with the following command:
-    ```bash
-      docker build -t xxxxxxxxxxx-mcp .
-    ```
 
-2. add the following json configuration to your Claude Desktop setup:
+1. Clone this repository and build the Docker image:
+```bash
+   docker build -t my-mcp-service .
+```
+
+2. Add the following configuration to your Claude Desktop setup:
 ```json
-{
-  "mcpServers": {
-    "jira-plus-service": {
-      "command": "docker",
-      "args": [
-        "run", "--rm",
-        "-e", "env_var=<value>",
-        "-i", "xxxxxxxxxxx-mcp"
-      ]
-    }
-  }
-}
+   {
+     "mcpServers": {
+       "my-mcp-service": {
+         "command": "docker",
+         "args": [
+           "run", "--rm",
+           "-e", "ENV_VAR=<value>",
+           "-i", "my-mcp-service"
+         ]
+       }
+     }
+   }
 ```
 
 ---
 
 ## 🤝 Contributing
-If you have a helpful tool, pattern, or improvement to suggest:
-Fork the repo <br>
-Create a new branch <br>
-Submit a pull request <br>
-I welcome additions that promote clean, productive, and maintainable development. <br>
+
+Fork the repo, create a new branch, and submit a pull request. Contributions that promote clean and maintainable development are welcome.
 
 ---
 
-## 🙏 Thanks
-Thanks for exploring this repository! <br>
-Happy coding! <br>
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
