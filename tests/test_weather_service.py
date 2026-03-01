@@ -1,8 +1,10 @@
+# pylint: disable=redefined-outer-name
 from typing import Any
 from unittest.mock import MagicMock, patch
 
 import pytest
-from requests.exceptions import ConnectionError, HTTPError
+import requests.exceptions
+from requests.exceptions import HTTPError
 
 from mcp_services.weather_service import WeatherService
 
@@ -46,7 +48,9 @@ class TestWeatherService:
         assert result["wind_speed"] == 4.1, f"Unexpected wind_speed: {result['wind_speed']}"
 
     def test_fetch_weather_passes_timeout(self, weather_service: WeatherService) -> None:
-        with patch("mcp_services.weather_service.requests.get", return_value=_mock_response(VALID_API_RESPONSE)) as mock_get:
+        with patch(
+            "mcp_services.weather_service.requests.get", return_value=_mock_response(VALID_API_RESPONSE)
+        ) as mock_get:
             weather_service.fetch_weather("Tel Aviv")
         _, kwargs = mock_get.call_args
         assert "timeout" in kwargs, "requests.get must be called with a timeout"
@@ -59,6 +63,9 @@ class TestWeatherService:
                 weather_service.fetch_weather("UnknownCity")
 
     def test_fetch_weather_connection_error_propagates(self, weather_service: WeatherService) -> None:
-        with patch("mcp_services.weather_service.requests.get", side_effect=ConnectionError("Network unreachable")):
-            with pytest.raises(ConnectionError):
+        with patch(
+            "mcp_services.weather_service.requests.get",
+            side_effect=requests.exceptions.ConnectionError("Network unreachable"),
+        ):
+            with pytest.raises(requests.exceptions.ConnectionError):
                 weather_service.fetch_weather("Tel Aviv")
