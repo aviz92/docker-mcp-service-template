@@ -1,11 +1,11 @@
-![Python](https://img.shields.io/badge/python->=3.11-blue)
+![Python](https://img.shields.io/badge/python->=3.12-blue)
 ![Development Status](https://img.shields.io/badge/status-stable-green)
 ![Maintenance](https://img.shields.io/maintenance/yes/2026)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 ---
 
-# Docker MCP Service Template
+# 💡 Docker MCP Service Template
 
 A production-ready template for building [Model Context Protocol (MCP)](https://modelcontextprotocol.io) services in Python, containerized with Docker. Clone this repo, add your services, and connect them to Claude Desktop or any MCP-compatible client in minutes.
 
