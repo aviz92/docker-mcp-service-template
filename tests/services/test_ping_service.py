@@ -1,12 +1,4 @@
-# pylint: disable=redefined-outer-name
-import pytest
-
 from mcp_services.ping_service import PingService
-
-
-@pytest.fixture
-def ping_service() -> PingService:
-    return PingService()
 
 
 class TestPingService:

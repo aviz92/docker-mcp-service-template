@@ -1,4 +1,3 @@
-# pylint: disable=redefined-outer-name
 from typing import Any
 from unittest.mock import MagicMock, patch
 
@@ -7,12 +6,6 @@ import requests.exceptions
 from requests.exceptions import HTTPError
 
 from mcp_services.weather_service import WeatherService
-
-
-@pytest.fixture
-def weather_service(monkeypatch: pytest.MonkeyPatch) -> WeatherService:
-    monkeypatch.setenv("WEATHER_API_KEY", "test-api-key")
-    return WeatherService()
 
 
 def _mock_response(data: dict[str, Any], status_code: int = 200) -> MagicMock:
