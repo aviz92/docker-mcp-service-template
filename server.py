@@ -2,7 +2,7 @@ from typing import Any
 
 from custom_python_logger import build_logger
 from dotenv import load_dotenv
-from mcp.server import FastMCP
+from mcp.server import MCPServer
 from requests.exceptions import HTTPError, RequestException
 
 from mcp_services.ping_service import PingService
@@ -13,7 +13,7 @@ load_dotenv()
 logger = build_logger(project_name="MCP Service")
 
 # Create an MCP server
-mcp = FastMCP(name="MCP Service")
+mcp = MCPServer(name="MCP Service")
 
 ping_service = PingService()
 weather_service = WeatherService()
